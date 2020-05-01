@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 class BurgerIngredients extends Component {
   render() {
    
-      const ingredient = null;
+      let ingredient = null;
 
-      switch(this.props.types){
+      switch (this.props.type){
         case ('bread-bottom'):
           ingredient = <div className={styles.BreadBottom}></div>;
           break;
