@@ -5,7 +5,7 @@ import Burger from '../../components/Burger/Burger'
 
   state={
     ingredients:{
-      salad :0,
+      salad :2,
       bacon:0,
       cheese:0,
       meat:0
