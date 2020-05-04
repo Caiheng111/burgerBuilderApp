@@ -6,10 +6,10 @@ import BurgerIngredients from './BurgerIngredients/BurgerIngredients'
   let transformedIngredients = Object.keys( ingredients )
         .map( igKey => {
             return [...Array( ingredients[igKey] )].map( ( _, i ) => {
+
                 return <BurgerIngredients key={igKey + i} type={igKey} />;
             } );
-        } )
-
+  } )
 
 
   return (
@@ -20,4 +20,6 @@ import BurgerIngredients from './BurgerIngredients/BurgerIngredients'
     </div>
   )
 }
+
+
 export default Burger;
