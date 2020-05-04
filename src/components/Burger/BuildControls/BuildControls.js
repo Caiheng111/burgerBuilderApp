@@ -1,13 +1,23 @@
-import React from './node_modules/react'
+import React from 'react'
+import styles from './BuildControls.css'
+import BuildControl from './BuildControl/BuildControl.js'
 
 
+const controls =[
+  {label: 'Salad', type:'salad'},
+  {label: 'Bacon', type:'bacon'},
+  {label: 'Cheese', type:'cheese'},
+  {label: 'Meat', type:'meat'},
+]
 
 
  const BuildControls = () => {
   
   return (
-    <div>
-         
+    <div className={styles.BuildControls}>
+         {controls.map(ctrl=>(
+           <BuildControl key ={ctrl.label} label={ctrl.label}/>
+         ))}
     </div>
   )
 }

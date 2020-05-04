@@ -1,5 +1,6 @@
 import React, { Component,Fragment } from 'react'
 import Burger from '../../components/Burger/Burger'
+import BuildControls from '../../components/Burger/BuildControls/BuildControls.js'
 
  class BurgerBuilder extends Component {
 
@@ -12,12 +13,13 @@ import Burger from '../../components/Burger/Burger'
     }
   }
 
+
   
   render() {
     return (
       <Fragment>
         <Burger ingredients={this.state.ingredients}/>
-        <div>Builder controlers</div>
+        <BuildControls/>
       </Fragment>
     )
   }
