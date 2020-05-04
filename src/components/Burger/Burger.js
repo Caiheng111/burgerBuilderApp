@@ -11,7 +11,7 @@ import BurgerIngredients from './BurgerIngredients/BurgerIngredients'
             } );
         })
           // console.log(transformedIngredients)
-    
+
         .reduce((arr, ele)=>{
             return arr.concat(ele)
         }, []);
