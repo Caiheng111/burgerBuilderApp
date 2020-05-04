@@ -1,7 +1,8 @@
 import React, { Component,Fragment } from 'react'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls.js'
-
+import Modal from '../../components/UI/Modal/Modal'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 
 const INGREDIENT_PRICES ={
   salad: 0.5,
@@ -9,6 +10,7 @@ const INGREDIENT_PRICES ={
   meat:1.3,
   bacon: 0.7
 }
+
 
  class BurgerBuilder extends Component {
 
@@ -19,8 +21,23 @@ const INGREDIENT_PRICES ={
       cheese:0,
       meat:0
     },
-    totalPrice: 4
+    totalPrice: 4,
+    purchasable :false,
+    purchasing : false
   }
+
+  updatePurchaseState (ingredients){
+    const sum = Object.keys(ingredients)
+    .map(igKey=>{
+      return ingredients[igKey]
+    })
+    .reduce((sum, ele)=>{
+      return sum + ele
+    },0)
+
+    this.setState({purchasable: sum > 0});
+  }
+
 
   addIngredientHandler = (type)=>{
     const oldCount = this.state.ingredients[type] ;
@@ -33,6 +50,7 @@ const INGREDIENT_PRICES ={
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice + priceAddition;
     this.setState({totalPrice:newPrice, ingredients:updatedIngredients})
+    this.updatePurchaseState(updatedIngredients)
   }
 
 
@@ -50,6 +68,11 @@ const INGREDIENT_PRICES ={
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice - priceDeduction;
     this.setState({totalPrice:newPrice, ingredients:updatedIngredients})
+    this.updatePurchaseState(updatedIngredients)
+  }
+
+  purchaseHandler=()=>{
+    this.setState({purchasing:true})
   }
 
 
@@ -65,12 +88,17 @@ const INGREDIENT_PRICES ={
 
     return (
       <Fragment>
+        <Modal show={this.state.purchasing}>
+          <OrderSummary ingredients={this.state.ingredients}/>
+        </Modal>
         <Burger ingredients={this.state.ingredients}/>
         <BuildControls 
             ingredientAdded= {this.addIngredientHandler}
             ingredientRemoved= {this.removeIngredientHandler}
             disabled ={disabledInfo}
-            price = {this.state.totalPrice}/>
+            price = {this.state.totalPrice}
+            purchasable={this.state.purchasable}
+            ordered={this.purchaseHandler}/>  
       </Fragment>
     )
   }
