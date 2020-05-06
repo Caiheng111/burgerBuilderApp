@@ -11,8 +11,8 @@ import styles from './BuildControl.css'
                   onClick={props.removed} 
                   disabled={props.disabled}>Less</button>
          <button className={styles.More} 
-                onClick={props.added}
-                >More</button>
+                onClick={props.added}>
+                  More</button>
     </div>
   )
 }
