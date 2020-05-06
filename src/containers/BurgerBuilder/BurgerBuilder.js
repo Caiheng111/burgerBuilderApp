@@ -102,6 +102,7 @@ const INGREDIENT_PRICES ={
           purchaseContinued={this.purchaseContinuedHandler}
           purchaseCancelled={this.purchaseCancelHandler}/>
         </Modal>
+  
         <Burger ingredients={this.state.ingredients}/>
         <BuildControls 
             ingredientAdded= {this.addIngredientHandler}
