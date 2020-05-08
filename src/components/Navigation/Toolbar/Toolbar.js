@@ -15,6 +15,4 @@ import NavigationItems from '../NavigationItems/NavigationItems'
  )
 
 
-  
-
 export default Toolbar;
