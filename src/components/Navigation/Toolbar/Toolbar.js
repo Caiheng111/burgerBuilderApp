@@ -10,7 +10,7 @@ import NavigationItems from '../NavigationItems/NavigationItems'
        <Logo/>
     </div>
    
-    <nav>
+    <nav className={styles.DesktopOnly}>
       <NavigationItems/>
     </nav>
   </header>
