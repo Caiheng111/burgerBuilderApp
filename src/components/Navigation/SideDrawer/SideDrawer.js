@@ -1,16 +1,18 @@
 import React from 'react'
-import Logo from '../../Logo'
-import NavigationItems from '../NavigationItems'
+import Logo from '../../Logo/Logo'
+import NavigationItems from '../NavigationItems/NavigationItems'
 import styles from './SideDrawer.css'
 
 const SideDrawer = (props) => {
    return(
     <div className={styles.SideDrawer}>
-      <Logo/>
+      <div className={styles.Logo}>
+        <Logo/>
+      </div>
+  
       <nav>
         <NavigationItems/>
-      </nav>
-       
+      </nav>     
     </div>
    )
  }

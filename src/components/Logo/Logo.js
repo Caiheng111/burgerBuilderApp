@@ -7,7 +7,7 @@ import styles from './Logo.css'
   return (
 
     <Fragment>
-        <div className={styles.Logo}>
+        <div className={styles.Logo} style={{height:props.height}}>
           <img src={burgerLogo} alt=""/>
         </div>
     </Fragment>
