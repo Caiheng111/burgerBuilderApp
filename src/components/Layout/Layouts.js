@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import styles from './Layouts.modules.css';
+import styles from './Layouts.css';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 
